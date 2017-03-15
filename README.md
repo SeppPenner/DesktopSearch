@@ -16,6 +16,7 @@ The executable is written and tested in .Net 4.6.2.
 Change history
 --------------
 
+* **Version 2.0.0.2 (2017-03-15)** : Fixed bug in installer. Added screenshots.
 * **Version 2.0.0.1 (2017-03-15)** : Fixed import config bug.
 * **Version 2.0.0.1 (2017-03-15)** : Switched to .Net 4.6.2, refactored code.
 * **Version 2.0.0.0 (2017-03-15)** : 1.0 release.
