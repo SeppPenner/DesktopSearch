@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "DesktopSearch"
-#define MyAppVersion "2.0.0.2"
+#define MyAppVersion "2.0.0.3"
 #define MyAppPublisher "Hämmer Electronics"
 #define MyAppURL "softwareload24.de.tl"
 #define MyAppExeName "DesktopSearch.exe"
