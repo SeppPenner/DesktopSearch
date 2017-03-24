@@ -63,15 +63,7 @@ namespace DesktopSearch
 
         private void comboBox_Language_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (comboBox_Language.SelectedItem.ToString())
-            {
-                case "Deutsch":
-                    _lm.SetCurrentLanguage("de-DE");
-                    break;
-                case "English (US)":
-                    _lm.SetCurrentLanguage("en-US");
-                    break;
-            }
+            _lm.SetCurrentLanguageFromName(comboBox_Language.SelectedItem.ToString());
         }
 
         private void OnLanguageChanged(object sender, EventArgs eventArgs)
