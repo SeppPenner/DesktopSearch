@@ -25,11 +25,11 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-LicenseFile=C:\Users\tim\Desktop\DesktopSearch2\DesktopSearch2\bin\Debug\License.txt
-InfoBeforeFile=C:\Users\tim\Desktop\DesktopSearch2\DesktopSearch2\bin\Debug\Readme.txt
-OutputDir=C:\Users\tim\Desktop\DesktopSearch2\Setup
+LicenseFile=C:\Users\tim\Desktop\DesktopSearch\DesktopSearch2\bin\Debug\License.txt
+InfoBeforeFile=C:\Users\tim\Desktop\DesktopSearch\DesktopSearch2\bin\Debug\Readme.txt
+OutputDir=C:\Users\tim\Desktop\DesktopSearch\Setup
 OutputBaseFilename=DesktopSearch2-Setup
-SetupIconFile=C:\Users\tim\Desktop\DesktopSearch2\DesktopSearch2\bin\Debug\Search.ico
+SetupIconFile=C:\Users\tim\Desktop\DesktopSearch\DesktopSearch2\bin\Debug\Search.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -42,13 +42,14 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "C:\Users\tim\Desktop\DesktopSearch2\DesktopSearch2\bin\Debug\DesktopSearch.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\tim\Desktop\DesktopSearch2\DesktopSearch2\bin\Debug\Readme.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\tim\Desktop\DesktopSearch2\DesktopSearch2\bin\Debug\Config.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\tim\Desktop\DesktopSearch2\DesktopSearch2\bin\Debug\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\tim\Desktop\DesktopSearch2\DesktopSearch2\bin\Debug\License.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\tim\Desktop\DesktopSearch2\DesktopSearch2\bin\Debug\Readme.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\tim\Desktop\DesktopSearch2\DesktopSearch2\bin\Debug\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\tim\Desktop\DesktopSearch\DesktopSearch2\bin\Debug\DesktopSearch.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\tim\Desktop\DesktopSearch\DesktopSearch2\bin\Debug\Readme.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\tim\Desktop\DesktopSearch\DesktopSearch2\bin\Debug\Config.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\tim\Desktop\DesktopSearch\DesktopSearch2\bin\Debug\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\tim\Desktop\DesktopSearch\DesktopSearch2\bin\Debug\License.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\tim\Desktop\DesktopSearch\DesktopSearch2\bin\Debug\Readme.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\tim\Desktop\DesktopSearch\DesktopSearch2\bin\Debug\Folder.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\tim\Desktop\DesktopSearch\DesktopSearch2\bin\Debug\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
