@@ -2,7 +2,7 @@ DesktopSearch
 ===============
 
 DesktopSearch is a software to search for files and folders in the current users' desktop.
-The executable is written and tested in .Net 4.6.2.
+The executable is written and tested in .Net 4.7.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/bq2tx2a016o6l0sf?svg=true)](https://ci.appveyor.com/project/SeppPenner/desktopsearch)
 
