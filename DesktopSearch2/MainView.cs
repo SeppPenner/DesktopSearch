@@ -21,7 +21,7 @@ namespace DesktopSearch
         private readonly ILanguageManager _lm = new LanguageManager();
         private int _counter;
         private ImageList _il = new ImageList();
-        private Language _lang;
+        private ILanguage _lang;
 
         public MainView()
         {
