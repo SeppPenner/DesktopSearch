@@ -2,11 +2,11 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "DesktopSearch"
-#define MyAppVersion "2.0.0.4"
+#define MyAppVersion "2.0.0.5"
 #define MyAppPublisher "Hämmer Electronics"
 #define MyAppURL "softwareload24.de.tl"
 #define MyAppExeName "DesktopSearch.exe"
-#define MyPath "F:\TODO\C# und VB\DesktopSearch"
+#define MyPath "C:\Users\tim\Desktop\Updaten_Snyk\DesktopSearch"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
