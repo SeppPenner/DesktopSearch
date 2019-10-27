@@ -2,11 +2,11 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "DesktopSearch"
-#define MyAppVersion "2.0.0.5"
+#define MyAppVersion "2.0.1.0"
 #define MyAppPublisher "Hämmer Electronics"
 #define MyAppURL "softwareload24.de.tl"
 #define MyAppExeName "DesktopSearch.exe"
-#define MyPath "C:\Users\tim\Desktop\Updaten_Snyk\DesktopSearch"
+#define MyPath "C:\Users\Tim\Documents\Git\C# und VB\DesktopSearch"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -23,14 +23,14 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={pf}\{#MyAppName}
+DefaultDirName={commonpf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-LicenseFile={#MyPath}\DesktopSearch2\bin\Debug\License.txt
-InfoBeforeFile={#MyPath}\DesktopSearch2\bin\Debug\Readme.txt
+LicenseFile={#MyPath}\DesktopSearch2\bin\Release\License.txt
+InfoBeforeFile={#MyPath}\DesktopSearch2\bin\Release\Readme.txt
 OutputDir={#MyPath}\Setup
 OutputBaseFilename=DesktopSearch2-Setup
-SetupIconFile={#MyPath}\DesktopSearch2\bin\Debug\Search.ico
+SetupIconFile={#MyPath}\DesktopSearch2\bin\Release\Search.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -43,14 +43,14 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "{#MyPath}\DesktopSearch2\bin\Debug\DesktopSearch.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\DesktopSearch2\bin\Debug\Readme.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\DesktopSearch2\bin\Debug\Config.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\DesktopSearch2\bin\Debug\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\DesktopSearch2\bin\Debug\License.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\DesktopSearch2\bin\Debug\Readme.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\DesktopSearch2\bin\Debug\Folder.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\DesktopSearch2\bin\Debug\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#MyPath}\DesktopSearch2\bin\Release\DesktopSearch.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\DesktopSearch2\bin\Release\Readme.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\DesktopSearch2\bin\Release\Config.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\DesktopSearch2\bin\Release\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\DesktopSearch2\bin\Release\License.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\DesktopSearch2\bin\Release\Readme.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\DesktopSearch2\bin\Release\Folder.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\DesktopSearch2\bin\Release\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
