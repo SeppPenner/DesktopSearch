@@ -2,7 +2,7 @@ DesktopSearch
 ===============
 
 DesktopSearch is a software to search for files and folders in the current users' desktop.
-The executable is written and tested in .Net 4.8.
+The executable is written and tested in .Net 5.0.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/bq2tx2a016o6l0sf?svg=true)](https://ci.appveyor.com/project/SeppPenner/desktopsearch)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/DesktopSearch.svg)](https://github.com/SeppPenner/DesktopSearch/issues)
@@ -21,11 +21,4 @@ The executable is written and tested in .Net 4.8.
 Change history
 --------------
 
-* **Version 2.0.1.0 (2019-10-27)** : Updated nuget packages, added GitVersionTask.
-* **Version 2.0.0.5 (2019-05-07)** : Updated .Net version to 4.8.
-* **Version 2.0.0.4 (2017-03-24)** : Updated Languages.dll to version 1.0.0.4.
-* **Version 2.0.0.3 (2017-03-21)** : Updated Languages.dll.
-* **Version 2.0.0.2 (2017-03-15)** : Fixed bug in installer. Added screenshots.
-* **Version 2.0.0.1 (2017-03-15)** : Fixed import config bug.
-* **Version 2.0.0.1 (2017-03-15)** : Switched to .Net 4.6.2, refactored code.
-* **Version 2.0.0.0 (2017-03-15)** : 1.0 release.
+See the [Changelog](https://github.com/SeppPenner/DesktopSearch/blob/master/Changelog.md).
