@@ -440,7 +440,7 @@ namespace DesktopSearch2
             try
             {
                 var directory = new DirectoryInfo(directoryPath);
-                foreach (var file in directory.GetFiles())
+                foreach (var file in directory.GetFiles("*", SearchOption.AllDirectories))
                 {
                     if (!file.Name.ToLower().Contains(search.ToLower()))
                     {
