@@ -43,11 +43,11 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\DesktopSearch2.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\DesktopSearch2\Readme.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\DesktopSearch2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\Config.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\Interop.IWshRuntimeLibrary.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\License.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\DesktopSearch2\Folder.ico"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
