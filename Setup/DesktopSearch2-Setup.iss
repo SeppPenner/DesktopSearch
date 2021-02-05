@@ -42,13 +42,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\DesktopSearch2.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\DesktopSearch2.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\Config.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\Interop.IWshRuntimeLibrary.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\License.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\DesktopSearch2\bin\Release\net5.0-windows\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\src\DesktopSearch2\bin\publish\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
