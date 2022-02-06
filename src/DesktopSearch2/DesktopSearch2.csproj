@@ -7,6 +7,7 @@
     <ApplicationIcon>Search.ico</ApplicationIcon>
     <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
     <LangVersion>latest</LangVersion>
+	<Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,11 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitVersion.MsBuild" Version="5.6.4">
+    <PackageReference Include="GitVersion.MsBuild" Version="5.8.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="HaemmerElectronics.SeppPenner.Language" Version="1.0.7" />
+    <PackageReference Include="HaemmerElectronics.SeppPenner.Language" Version="1.0.11" />
   </ItemGroup>
 
   <ItemGroup>

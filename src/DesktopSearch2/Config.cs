@@ -17,6 +17,6 @@ namespace DesktopSearch2
         /// <summary>
         /// Gets or sets the item view.
         /// </summary>
-        public string ItemView { get; set; }
+        public string ItemView { get; set; } = string.Empty;
     }
 }

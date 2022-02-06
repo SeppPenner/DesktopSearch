@@ -34,12 +34,12 @@ namespace DesktopSearch2
         /// <summary>
         /// The background worker.
         /// </summary>
-        private readonly BackgroundWorker backgroundWorker = new BackgroundWorker();
+        private readonly BackgroundWorker backgroundWorker = new();
 
         /// <summary>
         /// The configuration.
         /// </summary>
-        private readonly Config configuration;
+        private readonly Config configuration = new();
 
         /// <summary>
         /// The language manager.
@@ -54,12 +54,12 @@ namespace DesktopSearch2
         /// <summary>
         /// The image list.
         /// </summary>
-        private ImageList imageList = new ImageList();
+        private ImageList imageList = new();
 
         /// <summary>
         /// The language.
         /// </summary>
-        private ILanguage language;
+        private ILanguage? language;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainView"/> class.
@@ -71,7 +71,8 @@ namespace DesktopSearch2
             this.InitializeLanguageManager();
             this.LoadLanguagesToCombo();
             var location = Assembly.GetExecutingAssembly().Location;
-            this.configuration = InitConfiguration(Path.Combine(Directory.GetParent(location)?.FullName ?? string.Empty, "Config.xml"));
+            var config = InitConfiguration(Path.Combine(Directory.GetParent(location)?.FullName ?? string.Empty, "Config.xml"));
+            this.configuration = config ?? new();
             this.InitViewType();
             this.textBoxSearch.Focus();
         }
@@ -119,7 +120,6 @@ namespace DesktopSearch2
         /// <param name="listView">The list view.</param>
         private static void ClearListViewItems(ListView listView)
         {
-            // ReSharper disable once ConvertToLocalFunction
             Action action = () => listView.Items.Clear();
             listView.Invoke(action);
         }
@@ -132,7 +132,6 @@ namespace DesktopSearch2
         /// <param name="bitmap">The bitmap image.</param>
         private static void AddImageToImageList(Control listView, ImageList imageList, Image bitmap)
         {
-            // ReSharper disable once ConvertToLocalFunction
             Action action = () => imageList.Images.Add(bitmap);
             listView.Invoke(action);
         }
@@ -144,7 +143,6 @@ namespace DesktopSearch2
         /// <param name="imageList">The image list.</param>
         private static void SetLargeImageList(ListView listView, ImageList imageList)
         {
-            // ReSharper disable once ConvertToLocalFunction
             Action action = () => listView.LargeImageList = imageList;
             listView.Invoke(action);
         }
@@ -156,7 +154,6 @@ namespace DesktopSearch2
         /// <param name="imageList">The image list.</param>
         private static void SetSmallImageList(ListView listView, ImageList imageList)
         {
-            // ReSharper disable once ConvertToLocalFunction
             Action action = () => listView.SmallImageList = imageList;
             listView.Invoke(action);
         }
@@ -168,7 +165,6 @@ namespace DesktopSearch2
         /// <param name="imageList">The image list.</param>
         private static void AddItemToListView(ListView listView, ListViewItem imageList)
         {
-            // ReSharper disable once ConvertToLocalFunction
             Action action = () => listView.Items.Add(imageList);
             listView.Invoke(action);
         }
@@ -177,7 +173,7 @@ namespace DesktopSearch2
         /// Gets the current user's path.
         /// </summary>
         /// <returns>The current user's path as <see cref="string"/>.</returns>
-        private static string GetCurrentUserPath()
+        private static string? GetCurrentUserPath()
         {
             var path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))?.FullName;
 
@@ -194,7 +190,7 @@ namespace DesktopSearch2
         /// </summary>
         /// <param name="fileName">The file name.</param>
         /// <returns>The read <see cref="Config"/>.</returns>
-        private static Config InitConfiguration(string fileName)
+        private static Config? InitConfiguration(string fileName)
         {
             try
             {
@@ -214,10 +210,10 @@ namespace DesktopSearch2
         /// <typeparam name="T">The type parameter.</typeparam>
         /// <param name="xDocument">The X document.</param>
         /// <returns>An object of type <see cref="T"/>.</returns>
-        private static T CreateObjectsFromString<T>(XDocument xDocument)
+        private static T? CreateObjectsFromString<T>(XDocument xDocument)
         {
             var xmlSerializer = new XmlSerializer(typeof(T));
-            return (T)xmlSerializer.Deserialize(new StringReader(xDocument.ToString()));
+            return (T?)xmlSerializer.Deserialize(new StringReader(xDocument.ToString()));
         }
 
         /// <summary>
@@ -316,7 +312,7 @@ namespace DesktopSearch2
                 ClearListViewItems(this.listViewSearch);
                 this.counter = 0;
                 this.imageList = new ImageList();
-                this.SearchDirectory(Path.Combine(GetCurrentUserPath(), "Desktop"), this.textBoxSearch.Text);
+                this.SearchDirectory(Path.Combine(GetCurrentUserPath() ?? string.Empty, "Desktop"), this.textBoxSearch.Text);
                 SetButtonEnable(this.buttonSearch, true);
             }
         }
@@ -475,20 +471,25 @@ namespace DesktopSearch2
                             // File
                             if (File.Exists(shortcut.TargetPath))
                             {
-                                AddImageToImageList(
-                                    this.listViewSearch,
-                                    this.imageList,
-                                    FromIconToBitmap(Icon.ExtractAssociatedIcon(shortcut.TargetPath)));
+                                var icon = Icon.ExtractAssociatedIcon(shortcut.TargetPath);
+
+                                if (icon is not null)
+                                {
+                                    AddImageToImageList(this.listViewSearch, this.imageList, FromIconToBitmap(icon));
+                                }
                             }
                             else
                             {
                                 var tempTargetPath = shortcut.TargetPath.Replace(" (x86)", string.Empty);
+
                                 if (File.Exists(tempTargetPath))
                                 {
-                                    AddImageToImageList(
-                                        this.listViewSearch,
-                                        this.imageList,
-                                        FromIconToBitmap(Icon.ExtractAssociatedIcon(tempTargetPath)));
+                                    var icon = Icon.ExtractAssociatedIcon(tempTargetPath);
+
+                                    if (icon is not null)
+                                    {
+                                        AddImageToImageList(this.listViewSearch, this.imageList, FromIconToBitmap(icon));
+                                    }
                                 }
                                 else
                                 {
@@ -501,7 +502,12 @@ namespace DesktopSearch2
                             // Directory
                             if (Directory.Exists(shortcut.TargetPath))
                             {
-                                AddImageToImageList(this.listViewSearch, this.imageList, FromIconToBitmap(Icon.ExtractAssociatedIcon(AppDomain.CurrentDomain.BaseDirectory + "Folder.ico")));
+                                var icon = Icon.ExtractAssociatedIcon(AppDomain.CurrentDomain.BaseDirectory + "Folder.ico");
+
+                                if (icon is not null)
+                                {
+                                    AddImageToImageList(this.listViewSearch, this.imageList, FromIconToBitmap(icon));
+                                }
                             }
                             else
                             {
@@ -511,10 +517,12 @@ namespace DesktopSearch2
                     }
                     else
                     {
-                        AddImageToImageList(
-                            this.listViewSearch,
-                            this.imageList,
-                            FromIconToBitmap(Icon.ExtractAssociatedIcon(file.FullName)));
+                        var icon = Icon.ExtractAssociatedIcon(file.FullName);
+
+                        if (icon is not null)
+                        {
+                            AddImageToImageList(this.listViewSearch, this.imageList, FromIconToBitmap(icon));
+                        }
                     }
 
                     item.Tag = file.FullName;
@@ -542,7 +550,14 @@ namespace DesktopSearch2
                         item.SubItems.Add(subItem);
                         subItem = new ListViewItem.ListViewSubItem(item, folder.FullName);
                         item.SubItems.Add(subItem);
-                        AddImageToImageList(this.listViewSearch, this.imageList, FromIconToBitmap(Icon.ExtractAssociatedIcon(AppDomain.CurrentDomain.BaseDirectory + "Folder.ico")));
+
+                        var icon = Icon.ExtractAssociatedIcon(AppDomain.CurrentDomain.BaseDirectory + "Folder.ico");
+
+                        if (icon is not null)
+                        {
+                            AddImageToImageList(this.listViewSearch, this.imageList, FromIconToBitmap(icon));
+                        }
+                        
                         item.Tag = folder.FullName;
                         item.ImageIndex = this.counter;
                         item.Name = folder.FullName;
