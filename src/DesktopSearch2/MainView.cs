@@ -205,7 +205,7 @@ public partial class MainView : Form
     {
         this.backgroundWorker.WorkerSupportsCancellation = true;
         this.backgroundWorker.WorkerReportsProgress = true;
-        this.backgroundWorker.DoWork += this.BackgroundWorkerDoWork;
+        this.backgroundWorker.DoWork += this.BackgroundWorkerDoWork!;
     }
 
     /// <summary>
@@ -224,7 +224,7 @@ public partial class MainView : Form
     private void InitializeLanguageManager()
     {
         this.languageManager.SetCurrentLanguage("de-DE");
-        this.languageManager.OnLanguageChanged += this.OnLanguageChanged;
+        this.languageManager.OnLanguageChanged += this.OnLanguageChanged!;
     }
 
     /// <summary>
