@@ -247,7 +247,7 @@ public partial class MainView : Form
     /// <param name="e">The event args.</param>
     private void ComboBoxLanguageSelectedIndexChanged(object sender, EventArgs e)
     {
-        var selectedItem = this.comboBoxLanguage.SelectedItem.ToString();
+        var selectedItem = this.comboBoxLanguage.SelectedItem?.ToString();
 
         if (string.IsNullOrWhiteSpace(selectedItem))
         {
@@ -326,7 +326,7 @@ public partial class MainView : Form
     /// <param name="e">The event args.</param>
     private void ComboBoxViewSelectedIndexChanged(object sender, EventArgs e)
     {
-        this.listViewSearch.View = (View)Enum.Parse(typeof(View), this.comboBoxView.SelectedItem.ToString() ?? string.Empty);
+        this.listViewSearch.View = (View)Enum.Parse(typeof(View), this.comboBoxView.SelectedItem?.ToString() ?? string.Empty);
     }
 
     /// <summary>
@@ -347,7 +347,7 @@ public partial class MainView : Form
                 if (listViewItem.Name.EndsWith(".lnk"))
                 {
                     IWshShell shell = new WshShell();
-                    var shortcut = (IWshShortcut)shell.CreateShortcut(listViewItem.Tag.ToString());
+                    var shortcut = (IWshShortcut)shell.CreateShortcut(listViewItem.Tag?.ToString());
                     if (shortcut.TargetPath.Contains("."))
                     {
                         if (File.Exists(shortcut.TargetPath))
